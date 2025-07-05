@@ -1,5 +1,38 @@
 # Changelog
 
+## [v5.0.0] - 2025-07-05
+
+### 📚 Documentação
+- ✨ README completamente redesenhado com design profissional
+- 🎨 Adicionados badges, diagramas e estrutura visual moderna
+- 📊 Incluídas métricas de performance e monitoramento
+- 🏗️ Diagrama de arquitetura com Mermaid
+- 📋 Documentação completa da API
+- 📁 Estrutura do projeto detalhada
+- 📄 Licença MIT adicionada
+
+### 🎯 Melhorias
+- 🌟 Interface de documentação profissional
+- 📱 Design responsivo na documentação
+- 🔗 Links e navegação otimizados
+- 📈 Seção de monitoramento e observabilidade
+- 🤝 Guia de contribuição
+
+## [v4.0.0] - 2025-07-05
+
+### 🎨 Interface
+- Ajustado posicionamento da identificação TIME AZB-BSPCLOUD
+- Título limpo: "Kanban Board"
+- Header principal: "Kanban Board | TIME AZB-BSPCLOUD"
+- Melhor experiência do usuário
+
+## [v3.0.0] - 2025-07-05
+
+### 🏷️ Branding
+- Adicionada identificação "TIME AZB-BSPCLOUD" no título
+- Deploy realizado com sucesso no EKS
+- Nova imagem v3 no ECR
+
 ## [v2.0.0] - 2025-07-05
 
 ### 🚀 Funcionalidades

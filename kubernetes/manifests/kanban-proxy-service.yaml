@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kanban-proxy
+  namespace: foodme
+spec:
+  type: ExternalName
+  externalName: kanban-app-service.kanban.svc.cluster.local
+  ports:
+  - port: 80
+    targetPort: 80

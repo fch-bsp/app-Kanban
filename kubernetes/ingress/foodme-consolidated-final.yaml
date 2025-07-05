@@ -1,0 +1,63 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: foodme-consolidated-ingress
+  namespace: foodme
+  annotations:
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - foodme.local
+    secretName: foodme-tls
+  rules:
+  - host: foodme.local
+    http:
+      paths:
+      - path: /kanban(/|$)(.*)
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: kanban-proxy
+            port:
+              number: 80
+      - path: /simple-app
+        pathType: Prefix
+        backend:
+          service:
+            name: simple-app-proxy
+            port:
+              number: 80
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: app-foodme
+            port:
+              number: 80
+  - http:
+      paths:
+      - path: /kanban(/|$)(.*)
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: kanban-proxy
+            port:
+              number: 80
+      - path: /simple-app
+        pathType: Prefix
+        backend:
+          service:
+            name: simple-app-proxy
+            port:
+              number: 80
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: app-foodme
+            port:
+              number: 80

@@ -4,8 +4,20 @@ metadata:
   name: kanban-proxy
   namespace: foodme
 spec:
-  type: ExternalName
-  externalName: kanban-app-service.kanban.svc.cluster.local
+  type: ClusterIP
   ports:
   - port: 80
-    targetPort: 3000  # Fixed: Application runs on port 3000, not 80
+    targetPort: 3000
+    protocol: TCP
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: kanban-proxy
+  namespace: foodme
+subsets:
+- addresses:
+  - ip: 10.0.26.107  # IP do pod kanban atual
+  ports:
+  - port: 3000
+    protocol: TCP

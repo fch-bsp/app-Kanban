@@ -6,7 +6,7 @@ metadata:
   labels:
     app: kanban-app
 spec:
-  replicas: 2
+  replicas: 1  # Reduced from 2 to 1 to avoid state issues without shared DB
   selector:
     matchLabels:
       app: kanban-app

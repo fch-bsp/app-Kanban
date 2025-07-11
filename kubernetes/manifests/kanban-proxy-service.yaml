@@ -5,19 +5,9 @@ metadata:
   namespace: foodme
 spec:
   type: ClusterIP
+  selector:
+    app: kanban-app  # This will automatically find kanban pods
   ports:
   - port: 80
     targetPort: 3000
-    protocol: TCP
----
-apiVersion: v1
-kind: Endpoints
-metadata:
-  name: kanban-proxy
-  namespace: foodme
-subsets:
-- addresses:
-  - ip: 10.0.31.154  # Updated IP after pod restart
-  ports:
-  - port: 3000
     protocol: TCP

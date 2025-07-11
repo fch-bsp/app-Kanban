@@ -4,10 +4,8 @@ metadata:
   name: kanban-proxy
   namespace: foodme
 spec:
-  type: ClusterIP
-  selector:
-    app: kanban-app  # This will automatically find kanban pods
+  type: ExternalName
+  externalName: kanban-app-service.kanban.svc.cluster.local
   ports:
   - port: 80
-    targetPort: 3000
-    protocol: TCP
+    targetPort: 80  # kanban-app-service already maps 80->3000

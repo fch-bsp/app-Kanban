@@ -8,4 +8,4 @@ spec:
   externalName: kanban-app-service.kanban.svc.cluster.local
   ports:
   - port: 80
-    targetPort: 80
+    targetPort: 3000  # Fixed: Application runs on port 3000, not 80
